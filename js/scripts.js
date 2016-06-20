@@ -20,7 +20,6 @@ $(document).ready(function(){
 
   $("#input").submit(function(event){
     event.preventDefault();
-    debugger;
     var newName = $("#name").val();
     var newAge = parseInt($("#age").val());
     var newSpecies = $("input[name=species]:checked").val();
@@ -28,9 +27,11 @@ $(document).ready(function(){
     var newColor = $("input[name=color]:checked").map(function () {
       return $(this).val()
     }).get()
-    var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor)
+    var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor);
 
-    $('#output').text(output);
-
+    $('#animal-listing ul').append("<li>" +
+      "<h3 id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
+      "<p id='" + newAnimal.age + "'>" + newAnimal.age + "</p>" +
+      "</li>");
   });
 });
