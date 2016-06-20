@@ -1,4 +1,12 @@
-/*This file is for your custom js.  All yours*/
+// Business rules for animal adoption agency
+
+var Animal = function(name, age, species, gender, color) {
+  this.name = name;
+  this.age = age;
+  this.species = species;
+  this.gender = gender;
+  this.color = color;
+}
 
 // Calls input from form-input.html
 
