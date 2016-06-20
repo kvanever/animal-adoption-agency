@@ -21,11 +21,11 @@ $(document).ready(function(){
   $("#input").submit(function(event){
     event.preventDefault();
 
-    var newName = $("").val();
-    var newAge = parseInt($("").val());
-    var newSpecies = $("input[name=]:checked").val();
-    var newGender = $("input[name=]:checked").val();
-    var newColor = $("input:checkbox:checked").map(function () {
+    var newName = $("#name").val();
+    var newAge = parseInt($("#age").val());
+    var newSpecies = $("input[name=species]:checked").val();
+    var newGender = $("input[name=gender]:checked").val();
+    var newColor = $("input[name=color]:checked").map(function () {
       return $(this).val()
     }).get()
     var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor)
