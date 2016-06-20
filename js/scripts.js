@@ -14,6 +14,10 @@ Animal.prototype.adopt=function(adopted) {
   return this;
 }
 
+var findAnimal = function (animalId) {
+
+}
+
 // Calls input from form-input.html
 
 function images(images){
@@ -43,7 +47,6 @@ function images(images){
           return $(this).val()
         }).get()
         var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor);
-        debugger;
         $('#animal-listing ul').append("<li>" +
         "<h3 class='animal-name' id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
         "<p id='" + newAnimal.age + "'>" + newAnimal.age + "</p>" +
@@ -52,7 +55,8 @@ function images(images){
         "<p id='" + newAnimal.color +"'>"+ newAnimal.color+ "</p>" +"</li>");
       });
 
-      $("h3.animal-name").click(function(){
+      $(document).on('click', "h3.animal-name", function() {
+        debugger;
         var animalId = $(this).attr("id");
         findAnimal(animalId);
       });
