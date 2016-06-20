@@ -18,6 +18,10 @@ var findAnimal = function (animalId) {
 
 }
 
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 // Calls input from form-input.html
 
 function images(images){
@@ -50,8 +54,8 @@ function images(images){
         $('#animal-listing').append("<div>" +
         "<h3 class='animal-name' id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
         "<ul class='animal-listing'>" +
-        "<li id='" + newAnimal.species + "'>" + newAnimal.species + "</li>" +
-        "<li id='" + newAnimal.gender + "'>" + newAnimal.gender + "</li>" +
+        "<li id='" + newAnimal.species + "'>Species: " + newAnimal.species.capitalizeFirstLetter() + "</li>" +
+        "<li id='" + newAnimal.gender + "'>Gender: " + newAnimal.gender.capitalizeFirstLetter() + "</li>" +
         "</ul>" + "</div>");
       });
 
