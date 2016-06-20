@@ -9,7 +9,7 @@ var Animal = function(name, age, species, gender, color, adopted) {
   this.adopted = false;
 }
 
-Animal.prototype.adopt(adopted) {
+Animal.prototype.adopt=function(adopted) {
   this.adopted = true;
   return this;
 }
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   $("#input").submit(function(event){
     event.preventDefault();
-
+    debugger;
     var newName = $("#name").val();
     var newAge = parseInt($("#age").val());
     var newSpecies = $("input[name=species]:checked").val();
