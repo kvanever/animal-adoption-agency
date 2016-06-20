@@ -9,7 +9,7 @@ var Animal = function(name, age, species, gender, color, adopted) {
   this.adopted = false;
 }
 
-Animal.prototype.adopt=function(adopted) {
+Animal.prototype.adopt = function(adopted) {
   this.adopted = true;
   return this;
 }
