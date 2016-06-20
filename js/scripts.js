@@ -39,7 +39,6 @@ function images(images){
 
       $("#input").submit(function(event){
         event.preventDefault();
-        debugger;
         var newName = $("#name").val();
         var newAge = parseInt($("#age").val());
         var newSpecies = $("input[name=species]:checked").val();
@@ -48,16 +47,15 @@ function images(images){
           return $(this).val()
         }).get()
         var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor);
-        $('#animal-listing ul').append("<li>" +
+        $('#animal-listing').append("<div>" +
         "<h3 class='animal-name' id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
-        "<p id='" + newAnimal.age + "'>" + newAnimal.age + "</p>" +
-        "<p id='" + newAnimal.species + "'>" + newAnimal.species + "</p>" +
-        "<p id='" + newAnimal.gender + "'>" + newAnimal.gender + "</p>" +
-        "<p id='" + newAnimal.color +"'>"+ newAnimal.color+ "</p>" +"</li>");
+        "<ul class='animal-listing'>" +
+        "<li id='" + newAnimal.species + "'>" + newAnimal.species + "</li>" +
+        "<li id='" + newAnimal.gender + "'>" + newAnimal.gender + "</li>" +
+        "</ul>" + "</div>");
       });
 
       $(document).on('click', "h3.animal-name", function() {
-        debugger;
         var animalId = $(this).attr("id");
         findAnimal(animalId);
       });

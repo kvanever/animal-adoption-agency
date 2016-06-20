@@ -5,3 +5,12 @@ img.animal-image {
   background: #73AD21;
   padding: .5em;
 }
+
+ul.animal-listing {
+  list-style-type: none;
+}
+
+ul.animal-listing li {
+  display: inline-block;
+  margin: 1em;
+}
