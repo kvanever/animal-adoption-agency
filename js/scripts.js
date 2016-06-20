@@ -39,6 +39,7 @@ function images(images){
 
       $("#input").submit(function(event){
         event.preventDefault();
+        debugger;
         var newName = $("#name").val();
         var newAge = parseInt($("#age").val());
         var newSpecies = $("input[name=species]:checked").val();
