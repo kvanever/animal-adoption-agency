@@ -16,22 +16,44 @@ Animal.prototype.adopt=function(adopted) {
 
 // Calls input from form-input.html
 
-$(document).ready(function(){
+function images(images){
+  $(".col-md-6").text(newAnimal.name);
+  $("div#images").empty();
+  if (species==="cat"){
+    $('div#images').append("<img class='animal-species' src=''/>")
+  } else if (species==="dog"){
+    $('div#images').append("img class='' src='' />")
 
-  $("#input").submit(function(event){
-    event.preventDefault();
-    var newName = $("#name").val();
-    var newAge = parseInt($("#age").val());
-    var newSpecies = $("input[name=species]:checked").val();
-    var newGender = $("input[name=gender]:checked").val();
-    var newColor = $("input[name=color]:checked").map(function () {
-      return $(this).val()
-    }).get()
-    var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor);
+  }else if (species==="frog"){
+    $('div#images').append("img class='' src='' />")
 
-    $('#animal-listing ul').append("<li>" +
-      "<h3 id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
-      "<p id='" + newAnimal.age + "'>" + newAnimal.age + "</p>" +
-      "</li>");
-  });
+  }else if (species==="snake"){
+    $('div#images').append("img class='' src='' />")
+  }
+}
+    $(document).ready(function(){
+
+      $("#input").submit(function(event){
+        event.preventDefault();
+        var newName = $("#name").val();
+        var newAge = parseInt($("#age").val());
+        var newSpecies = $("input[name=species]:checked").val();
+        var newGender = $("input[name=gender]:checked").val();
+        var newColor = $("input[name=color]:checked").map(function () {
+          return $(this).val()
+        }).get()
+        var newAnimal = new Animal(newName, newAge, newSpecies, newGender, newColor);
+        debugger;
+        $('#animal-listing ul').append("<li>" +
+        "<h3 class='animal-name' id='" + newAnimal.name + "'>" + newAnimal.name + "</h3>" +
+        "<p id='" + newAnimal.age + "'>" + newAnimal.age + "</p>" +
+        "<p id='" + newAnimal.species + "'>" + newAnimal.species + "</p>" +
+        "<p id='" + newAnimal.gender + "'>" + newAnimal.gender + "</p>" +
+        "<p id='" + newAnimal.color +"'>"+ newAnimal.color+ "</p>" +"</li>");
+      });
+
+      $("h3.animal-name").click(function(){
+        var animalId = $(this).attr("id");
+        findAnimal(animalId);
+      });
 });
